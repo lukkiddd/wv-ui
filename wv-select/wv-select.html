@@ -1,0 +1,85 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+
+<dom-module id="wv-select">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 100%;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+      .wrapper {
+        position: relative;
+      }
+      select {
+        width: 100%;
+        border: none;
+        padding: 15px 0;
+        text-indent: 10px;
+        cursor: pointer;
+        font-size: 13px;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      select:focus,
+      select:active,
+      select:visited {
+        outline: none;
+      }
+
+      .icon {
+        width: 18px;
+        fill: #bbb;
+        position: absolute;
+        right: 10px;
+        top: 0;
+        height: 100%;
+      }
+    </style>
+    <div class="wrapper">
+      <select>
+        <option selected disabled>[[default]]</option>
+        <template is="dom-repeat" items=[[options]]>
+          <option value="[[item.value]]">[[item.name]]</option>
+        </template>
+      </select>
+      <iron-icon class="icon" icon="icons:chevron-right"></iron-icon>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `wv-select`
+     * Select input for webview of messenger&#39;s ui
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class WvSelect extends Polymer.Element {
+      static get is() { return 'wv-select'; }
+      static get properties() {
+        return {
+          placeholder: {
+            type: String,
+            value: 'Default value'
+          },
+          options: {
+            type: Array,
+            value: function () { return [{
+              value: '1',
+              name: '1'
+            }]; }
+          }
+        };
+      }
+    }
+
+    window.customElements.define(WvSelect.is, WvSelect);
+  </script>
+</dom-module>

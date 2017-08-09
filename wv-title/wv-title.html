@@ -1,0 +1,40 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="wv-title">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .title {
+        font-size: 13px;
+        text-transform: uppercase;
+        color: #bbb;
+        margin-left: 10px;
+      }
+    </style>
+    <div class="title">
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    /**
+     * `wv-title`
+     * Title for messenger ui&#39;s webview
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class WvTitle extends Polymer.Element {
+      static get is() { return 'wv-title'; }
+      static get properties() {
+        return {
+        };
+      }
+    }
+
+    window.customElements.define(WvTitle.is, WvTitle);
+  </script>
+</dom-module>

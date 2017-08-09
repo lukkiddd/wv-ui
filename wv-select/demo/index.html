@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>wv-select demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../wv-select.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic wv-select demo</h3>
+      <demo-snippet>
+        <template>
+          <wv-select id="select" placeholder="Please select" options=[[options]]></wv-select>
+        </template>
+        <script>
+          window.addEventListener('WebComponentsReady', function () {
+            var select = document.getElementById('select');
+            
+            var options = [{
+              value: 'apple',
+              name: 'Apple'
+            },{
+              value: 'mongo',
+              name: 'Mango'
+            }];
+
+            select.options = options;
+          })
+        </script>
+      </demo-snippet>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="wv-input">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 100%;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+      }
+      input {
+        width: 100%;
+        border: none;
+        padding: 15px 0;
+        text-indent: 10px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+      ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #ddd;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+        color: #ddd;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+        color: #ddd;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: #ddd;
+      }
+      input:focus,
+      input:active,
+      input:visited {
+        outline: none;
+      }
+    </style>
+
+    <input type="text" placeholder="[[placeholder]]">
+  </template>
+
+  <script>
+    /**
+     * `wv-input`
+     * text input for messenger ui&#39;s webview
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class WvInput extends Polymer.Element {
+      static get is() { return 'wv-input'; }
+      static get properties() {
+        return {
+          placeholder: {
+            type: String,
+            value: 'Enter your text'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(WvInput.is, WvInput);
+  </script>
+</dom-module>

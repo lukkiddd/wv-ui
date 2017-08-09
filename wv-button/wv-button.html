@@ -1,0 +1,81 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="wv-button">
+  <template>
+    <style>
+      :host {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        border-top: 1px solid #ddd;
+      }
+      .button-wrapper {
+        padding: 5px;
+      }
+      .button {
+        border-radius: 4px;
+        background-color: #0084FF;
+        border: none;
+        padding: 14px;
+        width: 100%;
+        text-align: center;
+        text-transform: capitalize;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .button:hover {
+        background-color: #0077E6;
+      }
+      .button.-disabled {
+        background-color: #bbb;
+        cursor: not-allowed;
+      }
+      .button:visited,
+      .button:active,
+      .button:focus {
+        outline: none;
+      }
+  </style>
+  <div class="button-wrapper">
+    <button class$="button [[_disabledClass]]">
+      <slot></slot>
+    </button>
+  </div>
+  </template>
+
+  <script>
+    /**
+     * `wv-button`
+     * button for messenger ui&#39;s webview
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class WvButton extends Polymer.Element {
+      static get is() { return 'wv-button'; }
+      static get properties() {
+        return {
+          disabled: {
+            type: Boolean,
+            value: false
+          },
+          _disabledClass: {
+            type: String,
+            value: '',
+            computed: '_computedDisabled(disabled)'
+          }
+        };
+      }
+      _computedDisabled(disabled) {
+        return disabled ? '-disabled' : '';
+      }
+    }
+
+    window.customElements.define(WvButton.is, WvButton);
+  </script>
+</dom-module>
