@@ -1,7 +1,6 @@
-# <wv-title>
+# wv-title
 Title text for webview of messenger's ui
 
-### Todos
 
 
 ## How to use
